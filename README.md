@@ -7,14 +7,14 @@ https://conix.one
   
   **Professional Services** Cloud consulting to help you architect your services, carry out site migrations, and deploy software.
 
-## Managed Kubernetis
+## Managed Kubernetes
 
   **Kubernetes as a Service** is a managed service that enables you to run containerized applications in a preprovisioned 
   cluster. Running containerized applications securely and efficiently is a complex task and requires an expertise. 
   Conix does these things for you, so you can focus on your business. You have full control of applications running in 
   your cluster.  
 
-  **Kubernetis Cluster** This type of managed kubernetes is a truly automated service that simplifies the creation and 
+  **Kubernetes Cluster** This type of managed kubernetes is a truly automated service that simplifies the creation and 
   maintenance of clusters into an infrastructure as code process that will build in turn a great developer experience. 
   You have full control of the cluster and manage security in your cluster.  
 
