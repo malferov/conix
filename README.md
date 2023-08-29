@@ -4,6 +4,7 @@ https://conix.one
 ## Services
 
   **Managed Service** An incident response service to help businesses cut out costly downtime. Let us manage your infrastructure so you can manage your business.  
+  
   **Professional Services** Cloud consulting to help you architect your services, carry out site migrations, and deploy software.
 
 ## Managed Kubernetis
