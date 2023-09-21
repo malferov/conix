@@ -1,11 +1,7 @@
-# conix.one
+# Conix One
+Fast and flexible computing power for any workload.  
+
 https://conix.one
-
-## Services
-
-  **Managed Service.** An incident response service to help businesses cut out costly downtime. Let us manage your infrastructure so you can manage your business.  
-  
-  **Professional Services.** Cloud consulting to help you architect your services, carry out site migrations, and deploy software.
 
 ## Managed Kubernetes
 
@@ -20,3 +16,9 @@ https://conix.one
 
   **Application migration.** If you want to migrate your application to Conix, our engineers will assist you. They will 
   migrate containers to a Kubernetes cluster, set it up, and implement CI/CD.
+
+## Services
+
+  **Managed Service.** An incident response service to help businesses cut out costly downtime. Let us manage your infrastructure so you can manage your business.  
+
+  **Professional Services.** Cloud consulting to help you architect your services, carry out site migrations, and deploy software.
