@@ -17,6 +17,14 @@ https://conix.one
   **Application migration.** If you want to migrate your application to Conix, our engineers will assist you. They will 
   migrate containers to a Kubernetes cluster, set it up, and implement CI/CD.
 
+## Conix One Guard
+
+  **Conix One Guard** is a DNS service that protects you against online ads, trackers, and phishing, no matter what platform 
+  and device you use. Easy setting up on your Router protects your entire network. It blocks ads and trackers on all devices 
+  connected to your home Wi-Fi: Game console, PC, Mobile or Smart TV. Make the Internet safe for everyone at home and at work.  
+
+  [How to set up Ads & Trackers blocking DNS server.](https://www.conix.one/products/guard-setup)
+
 ## Services
 
   **Managed Service.** An incident response service to help businesses cut out costly downtime. Let us manage your infrastructure so you can manage your business.  
