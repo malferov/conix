@@ -2,10 +2,10 @@
 set -e
 
 cd ../infra
-jinja2 ../deploy/secret.yaml \
+jinja2 ../spec/secret.yaml \
   -D crt=$(terraform output crt) \
   -D key=$(terraform output key) \
-  > ../deploy/secret.rendered
+  > ../spec/secret.rendered
 
 cd ../spec
 kubectl apply -f secret.rendered
