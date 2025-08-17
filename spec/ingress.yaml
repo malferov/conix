@@ -4,7 +4,7 @@ kind: Ingress
 metadata:
   name: frontend
   annotations:
-    nginx.ingress.kubernetes.io/permanent-redirect: https://www.conix.one
+    nginx.ingress.kubernetes.io/permanent-redirect: https://www.{{ domain }}
 spec:
   tls:
     - hosts:
