@@ -9,12 +9,13 @@ on:
     - "*"
 
 env:
+  app: conixsite
   domain: conix.one
   TF_VAR_domain: conix.one
 
   TF_INPUT: 0
   TF_IN_AUTOMATION: 1
-  TF_VAR_do_token: ${{ secrets.do_token }}
+  TF_VAR_do_token: ${{ secrets.DO_TOKEN }}
   TF_VAR_letsencrypt_url: https://acme-v02.api.letsencrypt.org/directory
   TF_VAR_email: ${{ secrets.EMAIL }}
 
@@ -35,7 +36,7 @@ jobs:
 
     - name: tls and dns
       env:
-        be_token: ${{ secrets.be_token }}
+        be_token: ${{ secrets.BE_TOKEN }}
       run: |
         cd infra
         ./init.sh
