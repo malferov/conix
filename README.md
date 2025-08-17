@@ -11,11 +11,11 @@ https://conix.one
   your cluster.  
 
   **Kubernetes cluster.** This type of managed kubernetes is a truly automated service that simplifies creation and maintenance 
-  of clusters via infrastructure as code. That builds a great developer experience. You have full control of the cluster and 
-  manage its security.  
+  of clusters via infrastructure as code. That builds a great developer experience. You have complete control over the cluster 
+  and manage its security.  
 
-  **Application migration.** Our engineers assist you to migrate your applications to Conix One. They will migrate containers 
-  to a kubernetes cluster, configure it, and implement CI/CD.
+  **Application migration.** Our engineers will help you migrate your applications to Conix One. Applications are transformed 
+  into containers for running in a cluster, configured and supplemented by CI/CD tools.
 
 ## Conix One Guard
 
@@ -27,6 +27,7 @@ https://conix.one
 
 ## Services
 
-  **Cloud consulting.** Cloud consulting helps you architect your services, carry out site migrations, develop and deploy software.  
+  **Private cloud consulting.** We help you architect your services, carry out site migrations, develop and deploy software.  
 
-  **Incident response.** Incident response service helps businesses cut out costly downtime. Let us manage your infrastructure, so you can focus on your business.
+  **Incident response.** Incident response service helps businesses cut out costly downtime. Let us manage your infrastructure. 
+  You can focus on your business.
