@@ -1,0 +1,24 @@
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: frontend
+  annotations:
+    nginx.ingress.kubernetes.io/permanent-redirect: https://www.{{ domain }}
+spec:
+  tls:
+    - hosts:
+      - {{ domain }}
+      secretName: tls
+  ingressClassName: nginx
+  rules:
+    - host: {{ domain }}
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: {{ service }}
+                port:
+                  number: {{ port }}

@@ -1,0 +1,49 @@
+name: CI
+
+on:
+  pull_request:
+    branches:
+    - master
+  push:
+    tags:
+    - "*"
+
+env:
+  app: conixsite
+  domain: conix.one
+  TF_VAR_domain: conix.one
+
+  TF_INPUT: 0
+  TF_IN_AUTOMATION: 1
+  TF_VAR_do_token: ${{ secrets.DO_TOKEN }}
+  TF_VAR_letsencrypt_url: https://acme-v02.api.letsencrypt.org/directory
+  TF_VAR_email: ${{ secrets.EMAIL }}
+
+  K8S_SERVER: ${{ secrets.K8S_SERVER }}
+  K8S_CA: ${{ secrets.K8S_CA }}
+  K8S_CRT: ${{ secrets.K8S_CRT }}
+  K8S_KEY: ${{ secrets.K8S_KEY }}
+
+jobs:
+  base:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: hashicorp/setup-terraform@v3
+
+    - name: deps
+      run: sudo pip install jinja2-cli
+
+    - name: tls and dns
+      env:
+        be_token: ${{ secrets.BE_TOKEN }}
+      run: |
+        cd infra
+        ./init.sh
+        terraform apply -auto-approve -var="ip=${{ secrets.K8S_SERVER }}"
+
+    - name: ingress
+      run: |
+        cd spec
+        ./kubeconfig.sh
+        ./apply.sh
