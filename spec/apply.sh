@@ -7,10 +7,19 @@ jinja2 ../deploy/secret.yaml \
   -D key=$(terraform output key) \
   > ../deploy/secret.rendered
 
-cd ../deploy
+cd ../spec
 kubectl apply -f secret.rendered
 
+service=web
+port=80
+
+jinja2 service.yaml \
+  -D service=$service \
+  -D port=$port \
+  | kubectl apply -f -
+
 jinja2 ingress.yaml \
-  -D app=$app \
   -D domain=$domain \
+  -D service=$service \
+  -D port=$port \
   | kubectl apply -f -

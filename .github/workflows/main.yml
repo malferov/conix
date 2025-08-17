@@ -44,6 +44,6 @@ jobs:
 
     - name: ingress
       run: |
-        cd deploy
+        cd spec
         ./kubeconfig.sh
         ./apply.sh
