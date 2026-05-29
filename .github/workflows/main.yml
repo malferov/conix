@@ -10,6 +10,7 @@ on:
 
 env:
   app: conixsite
+  service: web
   domain: conix.one
   TF_VAR_domain: conix.one
 
@@ -42,8 +43,51 @@ jobs:
         ./init.sh
         terraform apply -auto-approve -var="ip=${{ secrets.K8S_SERVER }}"
 
-    - name: ingress
+    - name: kube
       run: |
         cd spec
         ./kubeconfig.sh
         ./apply.sh
+
+  build-deploy:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        service:
+        - web
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 50
+
+    - name: set env
+      run: |
+        parent=0
+        if [ "${{ github.event_name }}" = "pull_request" ]; then
+          git fetch --tags
+          parent=2
+        fi
+        sha=$(git rev-parse --short HEAD^$parent)
+        echo "sha=$sha" >> $GITHUB_ENV
+        echo "ver=$(git describe --tag)" >> $GITHUB_ENV
+        echo "tag=$registry/${{ github.repository }}/$app-${{ matrix.service }}:$sha" >> $GITHUB_ENV
+        sudo pip install jinja2-cli
+
+    - name: build image
+      run: |
+        cd website
+        docker build .. -f ./Dockerfile \
+          --tag $tag \
+          --build-arg sha=$sha \
+          --build-arg ver=$ver \
+          --build-arg date="$(date --rfc-3339=seconds)" \
+          --build-arg app=$app \
+          --build-arg domain=$domain
+        echo "${{ secrets.GITHUB_TOKEN }}" | docker login $registry -u ${{ github.actor }} --password-stdin
+        docker push $tag
+
+    - name: deploy service
+      run: |
+        cd spec
+        ./kubeconfig.sh
+        ./service.sh ${{ matrix.service }}

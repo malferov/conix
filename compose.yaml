@@ -1,0 +1,13 @@
+services:
+  web:
+    build:
+      context: .
+      dockerfile: website/Dockerfile
+      args:
+        app: conixone
+        domain: conix.one
+        sha: ${sha}
+        ver: ${ver}
+        date: ${date}
+    ports:
+      - "8080:80"
