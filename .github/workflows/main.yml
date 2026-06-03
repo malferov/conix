@@ -51,6 +51,8 @@ jobs:
         ./apply.sh
 
   build-deploy:
+    permissions:
+      packages: write
     runs-on: ubuntu-latest
     strategy:
       matrix:
