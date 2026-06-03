@@ -13,6 +13,7 @@ env:
   service: web
   domain: conix.one
   TF_VAR_domain: conix.one
+  registry: ghcr.io
 
   TF_INPUT: 0
   TF_IN_AUTOMATION: 1
