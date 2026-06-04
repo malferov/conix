@@ -11,7 +11,7 @@ cd ../spec
 kubectl apply -f secret.rendered
 
 service=web
-port=8080
+port=80
 
 jinja2 ingress.yaml \
   -D domain=$domain \
